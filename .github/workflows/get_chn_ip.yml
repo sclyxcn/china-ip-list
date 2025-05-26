@@ -46,7 +46,7 @@ jobs:
     # 提交更改到本地
     - name: Commit files
       run: |
-         git config --local user.email "sclyxcn@github.com"
+         git config --local user.email "sclyx@kingdee.ltd"
          git config --local user.name "sclyxcn"
          ls
          pwd
