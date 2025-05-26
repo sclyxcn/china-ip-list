@@ -46,8 +46,8 @@ jobs:
     # 提交更改到本地
     - name: Commit files
       run: |
-         git config --local user.email "mayax@github.com"
-         git config --local user.name "mayaxcn"
+         git config --local user.email "sclyxcn@github.com"
+         git config --local user.name "sclyxcn"
          ls
          pwd
          git rm -f chn_ip.txt chnroute.txt chn_ip_v6.txt chnroute_v6.txt
