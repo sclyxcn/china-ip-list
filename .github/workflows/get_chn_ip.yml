@@ -64,5 +64,5 @@ jobs:
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        with:
-         branch: master
+        git add -A
+        git commit -m "Nodes Update" && git push
