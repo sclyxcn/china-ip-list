@@ -46,8 +46,8 @@ jobs:
     # 提交更改到本地
     - name: Commit files
       run: |
-         git config --local user.email "sclyx@kingdee.ltd"
-         git config --local user.name "sclyxcn"
+         git config --local user.email "action@github.com"
+         git config --local user.name "GitHub Action"
          ls
          pwd
          git rm -f chn_ip.txt chnroute.txt chn_ip_v6.txt chnroute_v6.txt
@@ -60,8 +60,13 @@ jobs:
          git commit -m "提交新的IP文件，更新于$(date "+%Y-%m-%d %H:%M:%S")"
          
     # 推送到远程
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-         github_token: ${{ secrets.CHNIP_GIT_KEY }}
-         branch: master
+    - name: Commit and push if there are changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add -A
+        if [[ `git status --porcelain` ]]; then
+          git commit -m "Nodes Update" && git push
+        else
+          echo "Not commit."
+        fi
